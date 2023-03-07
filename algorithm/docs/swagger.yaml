@@ -1,0 +1,61 @@
+basePath: /api
+definitions:
+  types.ArrayRequest:
+    properties:
+      array:
+        items:
+          type: integer
+        type: array
+      integer:
+        type: integer
+    required:
+    - array
+    - integer
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: The Algorithm Service
+    url: http://www.swagger.io/support
+  description: The api documentation of the core apis of the algorithm service.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: The Algorith Service api documentation
+  version: 1.0.0
+paths:
+  /json:
+    get:
+      consumes:
+      - application/json
+      description: login for auth users
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            items:
+              $ref: '#/definitions/types.ArrayRequest'
+            type: array
+        "401":
+          description: unauthorized
+          schema:
+            type: string
+        "403":
+          description: forbidden
+          schema:
+            type: string
+        "500":
+          description: server error
+          schema:
+            type: string
+      summary: auth login as a user
+      tags:
+      - auth
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"

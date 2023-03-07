@@ -1,0 +1,73 @@
+basePath: /api
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: Gateway service documentation
+    url: http://www.swagger.io/support
+  description: The api documentation of the core apis of the gateway service.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Gateway service api documentation
+  version: 1.0.0
+paths:
+  /authenticate:
+    get:
+      consumes:
+      - application/json
+      description: authentication endpoint for the gateway logic
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: "status: authorized\"\t\"success"
+          schema:
+            type: string
+        "401":
+          description: unauthorized
+          schema:
+            type: string
+        "403":
+          description: forbidden
+          schema:
+            type: string
+        "500":
+          description: server error
+          schema:
+            type: string
+      summary: authenticate as a user
+      tags:
+      - auth
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: login endpoint for the registered user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: "token: some really long token\"\t\"success"
+          schema:
+            type: string
+        "401":
+          description: unauthorized
+          schema:
+            type: string
+        "403":
+          description: forbidden
+          schema:
+            type: string
+        "500":
+          description: server error
+          schema:
+            type: string
+      summary: login as a user
+      tags:
+      - auth
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"

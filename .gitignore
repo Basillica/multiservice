@@ -1,0 +1,22 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# nginx
+.nginx
+
+# MAC specific
+.DS_Store
+
+# vendors
+algorithm/vendor
+gateway/vendor
+parsejson/vendor
+
+# binaries
+algorithm/multiservice_algorithm
+gateway/multiservice_gateway
+parsejson/multiservice_parser
